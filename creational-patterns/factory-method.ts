@@ -47,3 +47,5 @@ const clientCode = (shippingCompany: ShippingCompany) => {
 
 clientCode(new DFDS()) // Shipping on Ship
 clientCode(new Girteka()) // Shipping on Truck
+
+export {}

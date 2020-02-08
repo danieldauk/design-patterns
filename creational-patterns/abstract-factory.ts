@@ -62,3 +62,5 @@ const clientCode = (furnitureFactory: FurnitureFactory) => {
 
 clientCode(new ModernFurnitureFactory()); // Sitting on modern chair. Laying on modern bed
 clientCode(new VictorianFurnitureFactory()); // Sitting on victorian chair. Laying on victorian bed
+
+export {}

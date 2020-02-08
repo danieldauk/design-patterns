@@ -109,3 +109,4 @@ director.buildHouseWithGarage();
 const stoneHouseWithGarage = stoneHouseBuilder.build();
 console.log(stoneHouseWithGarage.listParts()) // [ 'stone walls', 'stone roof', 'stone garage' ]
 
+export {}
