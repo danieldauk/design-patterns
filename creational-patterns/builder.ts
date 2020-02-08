@@ -103,8 +103,9 @@ const stoneHouseBuilder = new StoneHouseBuilder();
 director.setBuilder(stoneHouseBuilder);
 director.buildBasicHouse();
 const basicStoneHouse = stoneHouseBuilder.build();
+console.log(basicStoneHouse.listParts()); // [ 'stone walls', 'stone roof' ]
+
 director.buildHouseWithGarage();
 const stoneHouseWithGarage = stoneHouseBuilder.build();
-console.log(basicStoneHouse.listParts()); // [ 'stone walls', 'stone roof' ]
 console.log(stoneHouseWithGarage.listParts()) // [ 'stone walls', 'stone roof', 'stone garage' ]
 
