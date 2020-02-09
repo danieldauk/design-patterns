@@ -50,3 +50,5 @@ const clientCode = () => {
 }
 
 clientCode();
+
+export {}
