@@ -9,7 +9,7 @@ interface Device {
 class Radio implements Device {
   private isPowerOn = false;
   private volume = 50;
-  
+
   isEnabled() {
     return this.isPowerOn;
   }
@@ -93,7 +93,7 @@ const clientCode = () => {
   const tvRemote = new RemoteControl(tv);
   const radioRemote = new RemoteControl(radio);
 
-  tvRemote.togglePower(); // TV is turned on
+  tvRemote.togglePower();
   console.log(tv.isEnabled()); // true
   tvRemote.volumeUp();
   console.log(tv.getVolume()); // 51
