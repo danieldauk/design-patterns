@@ -1,8 +1,12 @@
 interface PizzaInterface {
+  getPrice(): number;
   getDescription(): string;
 }
 
 class Pizza implements PizzaInterface {
+  getPrice() {
+    return 5;
+  }
   getDescription() {
     return 'Tasty pizza';
   }
@@ -15,6 +19,10 @@ abstract class PizzaDecorator implements PizzaInterface {
     this.pizza = pizza;
   }
 
+  getPrice() {
+    return this.pizza.getPrice();
+  }
+
   getDescription() {
     return this.pizza.getDescription();
   }
@@ -23,35 +31,29 @@ abstract class PizzaDecorator implements PizzaInterface {
 class CheeseDecorator extends PizzaDecorator {
   getDescription() {
     const pizzaDescription = this.pizza.getDescription();
-    if (pizzaDescription.includes('with')) {
-      return `${pizzaDescription} and cheese`;
-    }
     return `${pizzaDescription} with cheese`;
   }
 }
 
-class BaconDecorator extends PizzaDecorator {
-  getDescription() {
-    const pizzaDescription = this.pizza.getDescription();
-    if (pizzaDescription.includes('with')) {
-      return `${pizzaDescription} and bacon`;
-    }
-    return `${pizzaDescription} with bacon`;
+class PackingDecorator extends PizzaDecorator {
+  getPrice() {
+    const pizzaPrice = this.pizza.getPrice();
+    return pizzaPrice + 0.99;
   }
 }
 
 const clientCode = () => {
   const pizza = new Pizza();
   console.log(pizza.getDescription()); // Tasty pizza
+  console.log(pizza.getPrice()); // 5
 
   const pizzaWithCheese = new CheeseDecorator(new Pizza());
   console.log(pizzaWithCheese.getDescription()); // Tasty pizza with cheese
+  console.log(pizzaWithCheese.getPrice()); // 5
 
-  const pizzaWithBacon = new BaconDecorator(new Pizza());
-  console.log(pizzaWithBacon.getDescription()); // Tasty pizza with bacon
-
-  const pizzaWithCheeseAndBacon = new BaconDecorator(new CheeseDecorator(new Pizza()));
-  console.log(pizzaWithCheeseAndBacon.getDescription()); // Tasty pizza with cheese and bacon
+  const packedPizzaWithCheese = new PackingDecorator((new CheeseDecorator(new Pizza())));
+  console.log(packedPizzaWithCheese.getDescription()); // Tasty pizza with cheese
+  console.log(packedPizzaWithCheese.getPrice()); // 5.99
 }
 
 clientCode();
