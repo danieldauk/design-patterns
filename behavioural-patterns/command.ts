@@ -68,7 +68,7 @@ class Button {
     this.command = command;
   }
 
-  onClick() {
+  click() {
     this.command.execute();
   }
 }
@@ -115,16 +115,16 @@ const clientCode = () => {
   const rightButton = new Button(moveRightCommand);
   const undoButton = new Button(undoCommand);
 
-  upButton.onClick();
+  upButton.click();
   gameCharacter.getCoordinates(); // x = 0; y = 1
 
-  rightButton.onClick();
+  rightButton.click();
   gameCharacter.getCoordinates(); // x = 1; y = 1
 
-  undoButton.onClick();
+  undoButton.click();
   gameCharacter.getCoordinates(); // x = 0; y = 1
   
-  undoButton.onClick();
+  undoButton.click();
   gameCharacter.getCoordinates(); // x = 0; y = 0
 }
 
