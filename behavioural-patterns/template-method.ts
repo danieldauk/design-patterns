@@ -34,7 +34,6 @@ class Button extends Component {
 
 class Input extends Component {
   shouldComponentUpdate() {
-    console.log('Component should not update');
     return false;
   }
   componentDidMount() {
@@ -60,7 +59,6 @@ const clientCode = () => {
   // Rendering input
   // Component did mount (input implementation)
   input.update();
-  // Component should not update
 };
 
 clientCode();
